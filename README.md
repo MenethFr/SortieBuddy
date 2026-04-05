@@ -21,21 +21,22 @@ _Adapted from NyzulBuddy by Uwu/Darkdoom._
 
 ## Commands
 
-| Command     | Alias         | Description                                                               |
-| :---------- | :------------ | :------------------------------------------------------------------------ |
-| `//sb send` | `//sb report` | Synchronizes with the server and reports all nearby Bitzers to the party. |
-| `//sb help` | -             | Displays the command help message.                                        |
+| Command           | Alias             | Description                                                               |
+| :---------------- | :---------------- | :------------------------------------------------------------------------ |
+| `//sortie send`   | `//sortie report` | Synchronizes with the server and reports all nearby Bitzers to the party. |
+| `//sortie silent` | -                 | Synchronizes with the server and reports all nearby Bitzers to self.      |
+| `//sortie help`   | -                 | Displays the command help message.                                        |
 
 ## How it Works
 
-When the `send` command is triggered, the addon:
+When the `send` or `silent` command is triggered, the addon:
 
 1.  **Requests Data**: Injects an outgoing packet to the server to get the latest position of Bitzers E, F, G, and H.
 2.  **Wait for Sync**: Pauses for 3 seconds to allow the server to respond.
 3.  **Processes Coordinates**: Iterates through the Bitzers and calculates their position using a calibrated grid formula:
     - `Column = 2 + floor((x - 40) / 80)`
     - `Row = 7 - floor((y - 40) / 80)`
-4.  **Reports**: Sends a message to `/p` for each detected Bitzer with a 2-second delay between each message to prevent disconnects.
+4.  **Reports**: Sends a message to `/p` or locally (for silent mode) for each detected Bitzer with a 2-second delay between each message to prevent disconnects.
 
 ## Calibration Note
 
@@ -44,5 +45,5 @@ The coordinate formula is calibrated based on a **80x80 yalm** grid with an offs
 ## Author
 
 - **Author**: Meneth
-- **Version**: 1.0
+- **Version**: 1.1
 - **Language**: English
