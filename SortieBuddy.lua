@@ -72,7 +72,7 @@ end
 function send_to_party()
     Update()
     windower.add_to_chat(200, 'SortieBuddy: Report is being generated...')
-    windower.send_command('input /p Trying to find Bitzers; wait 3; sb internal_send')
+    windower.send_command('input /p Trying to find Bitzers; wait 3; sortie internal_send')
 end
 
 function actual_send_to_self()
@@ -95,7 +95,7 @@ end
 function send_to_self()
     Update()
     windower.add_to_chat(200, 'SortieBuddy: Report is being generated...')
-    windower.send_command('wait 3; sb internal_send_self')
+    windower.send_command('wait 3; sortie internal_send_self')
 end
 
 function sortie_command(command, ...)
@@ -110,7 +110,7 @@ function sortie_command(command, ...)
     elseif cmd == 'internal_send_self' then
         actual_send_to_self()
     else
-        windower.add_to_chat(200, 'SortieBuddy: //sortie send | report')
+        windower.add_to_chat(200, 'SortieBuddy: //sortie send | report | silent')
     end
 end
 
